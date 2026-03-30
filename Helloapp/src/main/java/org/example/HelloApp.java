@@ -1,20 +1,28 @@
 package org.example;
 
 public class HelloApp {
-    public static void main(String[] args) {
-        if (args.length > 0) {
-            StringBuilder names = new StringBuilder();
 
-            for (int i = 0; i < args.length; i++) {
-                names.append(args[i]);
-                if (i < args.length - 1) {
-                    names.append(", ");
+    public static void main(String[] args) {
+
+        String name = "World";
+        if (args.length > 0) {
+
+            StringBuilder nameBuilder = new StringBuilder();
+            boolean first = true;
+
+            for (String arg : args) {
+
+                if (!first) {
+                    nameBuilder.append(", ");
                 }
+
+                nameBuilder.append(arg);
+                first = false;
             }
 
-            System.out.println("Hello, " + names + "!");
-        } else {
-            System.out.println("Hello, World!");
+            name = nameBuilder.toString();
         }
+
+        System.out.println("Hello, " + name + "!");
     }
 }
